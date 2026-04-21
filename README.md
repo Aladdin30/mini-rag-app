@@ -4,7 +4,7 @@ this is a minimal implementation of the rag  model for question answering.
 
 
 ## Requirements
-- Python 3.8 or later
+- Python 3.10 or later
 
 1)Download and install Miniconda 
 
