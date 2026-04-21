@@ -16,3 +16,4 @@ class DataController(BaseController):
             return False,ResponseSignal.FILE_SIZE_EXCEEDED.value
         
         return True,ResponseSignal.FILE_VALIDATED_SUCCESS.value 
+        
