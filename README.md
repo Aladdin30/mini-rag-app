@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # mini-rag 
 
 this is a minimal implementation of the rag  model for question answering.
@@ -27,3 +28,6 @@ Set your environment variables in the '.env' file. Like
 uvicorn main:app --reload --host 0.0.0.0 --port 5000
 
 ```
+=======
+# mini-rag-app
+>>>>>>> 3ac829ae11c3ae5134114391e909df0bf382b7c2
