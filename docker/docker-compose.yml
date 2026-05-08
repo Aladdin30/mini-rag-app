@@ -1,0 +1,16 @@
+services:
+  mongodb: #services name
+    image: mongo:8.0.20-noble
+    container_name: mongodb
+    ports:
+      - "27007:27017"
+    volumes: # whene docker shatdowm the docker will create mongodb file and write on it befor shatdown
+      - ./mongodb:/data/db
+    networks:
+      - backend
+    restart: always
+
+
+networks:
+  backend:
+     
