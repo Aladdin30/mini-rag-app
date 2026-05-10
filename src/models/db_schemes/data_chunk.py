@@ -11,8 +11,18 @@ class DataChunk(BaseModel):
     chunk_order:int =Field(...,gt=0)
     chunk_project_id: ObjectId
 
-   
     class Config:
         arbitrary_types_allowed = True
+
+    @classmethod
+    def get_indexes(cls):
+
+        return [
+            {
+                "key":[("chunk_project_id",1)],
+                "name":"chunk_project_id_indexes_1",
+                "unique":False
+            }
+        ]
 
         
