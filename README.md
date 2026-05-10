@@ -28,5 +28,15 @@ uvicorn main:app --reload --host 0.0.0.0 --port 5000
 
 ```
 =======
-# mini-rag-app
+# docker file
+
+1)Create a new environment
+2)create a username and password
+
+## Setup the environment variables
+
+```bash
+
+$ cp .env.example .env
+
 

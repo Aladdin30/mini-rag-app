@@ -5,7 +5,10 @@ services:
     ports:
       - "27007:27017"
     volumes: # whene docker shatdowm the docker will create mongodb file and write on it befor shatdown
-      - ./mongodb:/data/db
+      - mongodata:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     networks:
       - backend
     restart: always
@@ -13,4 +16,6 @@ services:
 
 networks:
   backend:
-     
+
+volumes: # whene docker shatdowm the docker will create mongodb file and write on it befor shatdown
+  mongodata:   
