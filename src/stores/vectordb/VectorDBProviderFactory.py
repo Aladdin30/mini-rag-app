@@ -1,6 +1,7 @@
 from .providers import QdrantDBProvider
 from .VectorDBEnums import VectorDBEnums
-from Controllers.BaseController import BaseController
+from src.controllers.BaseController import BaseController
+
 class VectorDBProviderFactory:
     def __init__(self,config:dict):
         self.config= config
