@@ -20,8 +20,8 @@ async def startup_span():
     app.generation_client.set_generation_model(model_id=setting.GENERATION_MODEL_ID)
     #embedding client
     app.embedding_client= llm_provider_factory.create(provider=setting.EMBEDDING_BECKEND)
-    app.embedding_client.set_generation_model(model_id=setting.GENERATION_MODEL_ID,
-                                              embedding_size=setting.EMBEDDING_MODEL_SIZE)
+    app.embedding_client.set_generation_model(model_id=setting.GENERATION_MODEL_ID)
+                                              #embedding_size=setting.EMBEDDING_MODEL_SIZE)
     app.vectordb_client= vectordb_provider_factory.create(provider=setting.VECTOR_DB_BACKEND)
     app.vectordb_client.connect()
 
@@ -29,8 +29,9 @@ async def shutdown_span():
     app.mongo_conn.close()
     app.vectordb_client.connect()
 
-app.router.lifespan.on_startup.append(startup_span)
-app.router.lifespan.on_shutdown.append(shutdown_span)
+ 
+app.on_event("startup")(startup_span)
+app.on_event("shutdown")(shutdown_span)
 
 app.include_router(base.base_router)
 app.include_router(data.data_router)
